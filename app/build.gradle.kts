@@ -31,7 +31,7 @@ dependencies{
     implementation(libs.androidx.tracing.ktx)
     debugApi(libs.androidx.compose.ui.tooling)
     implementation(libs.androidx.hilt.navigation.compose)
-
+    implementation(libs.androidx.compose.material3.windowSizeClass)
     implementation(libs.androidx.core.ktx)
 
     implementation(libs.androidx.lifecycle.livedata.ktx)

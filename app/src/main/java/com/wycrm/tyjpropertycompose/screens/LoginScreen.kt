@@ -15,7 +15,7 @@ import com.wycrm.tyjpropertycompose.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Login() {
+fun LoginScreen(onNavigateToMain: () -> Unit) {
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -28,7 +28,7 @@ fun Login() {
                 value = phoneNumber,
                 singleLine = true,
                 onValueChange = { if (it.length <= 11) phoneNumber = it },
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
                 label = { Text(text = stringResource(id = R.string.phone_number)) }
             )
             var password by remember {
@@ -44,7 +44,9 @@ fun Login() {
                 label = { Text(text = stringResource(id = R.string.password)) }
             )
 
-            Button(onClick = { /*TODO*/ }) {
+            Button(
+                onClick = { onNavigateToMain() }
+            ) {
                 Text(text = stringResource(id = R.string.login))
             }
         }

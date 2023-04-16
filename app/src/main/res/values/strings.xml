@@ -6,6 +6,10 @@
     <string name="retrieve_password">找回密码</string>
     <string name="register">注册</string>
     <string name="login">登录</string>
+    <string name="work_order">工单</string>
+    <string name="contacts">联系人</string>
+    <string name="workbenches">工作台\n</string>
+    <string name="settings">设置\n</string>
 
 
 </resources>

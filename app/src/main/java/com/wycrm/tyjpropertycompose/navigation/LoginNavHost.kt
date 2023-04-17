@@ -16,10 +16,6 @@ fun LoginNavHost(
     startDestination: String = loginRoute,
     windowSizeClass: WindowSizeClass,
     networkMonitor: NetworkMonitor,
-    appState: MainState = rememberMainState(
-        networkMonitor = networkMonitor,
-        windowSizeClass = windowSizeClass,
-    ),
 ) {
 
     val navController = rememberNavController()
@@ -31,6 +27,6 @@ fun LoginNavHost(
         loginScreen {
             navController.navigate(mainRoute)
         }
-        mainScreen(windowSizeClass,networkMonitor,appState)
+        mainScreen(windowSizeClass,networkMonitor)
     }
 }

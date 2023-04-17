@@ -13,20 +13,30 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationRail
+import androidx.compose.material3.NavigationRailItem
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.ComposeNavigator
+import androidx.navigation.compose.composable
+import androidx.navigation.createGraph
 import com.wycrm.tyjpropertycompose.navigation.MainNavHost
 import com.wycrm.tyjpropertycompose.navigation.TopLevelDestination
 import com.wycrm.tyjpropertycompose.ui.MainState
@@ -45,33 +55,36 @@ fun MainScreen(
     ),
 ) {
 
+    val snackbarHostState = remember { SnackbarHostState() }
+
     val destinations: List<TopLevelDestination> = appState.topLevelDestinations
 
     val currentDestination = appState.currentDestination
-
     Surface() {
         Scaffold(
+            containerColor = Color.Transparent,
+            contentWindowInsets = WindowInsets(0, 0, 0, 0),
+            snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
+
             bottomBar = {
                 BottomAppBar() {
                     destinations.forEach { destination ->
                         val selected = currentDestination.isTopLevelDestinationInHierarchy(destination)
-
                         NavigationBarItem(
                             selected = selected,
-                            onClick = { appState::navigateToTopLevelDestination },
+                            onClick = { appState.navigateToTopLevelDestination(destination) },
+                            icon = {
+                                if (selected) {
+                                    Icon(imageVector = destination.selectedIcon, contentDescription = null, tint = Color.Blue)
+                                } else {
+                                    Icon(imageVector = destination.unselectedIcon, contentDescription = null, tint = Color.Gray)
+                                }
+
+                            },
                             label = {
                                 Text(stringResource(destination.iconTextId))
                             },
-
-                            icon = {
-                                val icon = if (selected) {
-                                    destination.selectedIcon
-                                } else {
-                                    destination.unselectedIcon
-                                }
-
-                                Icon(painter = painterResource(id = icon), contentDescription = null)
-                            })
+                        )
                     }
                 }
             }
@@ -90,7 +103,27 @@ fun MainScreen(
             ) {
                 if (appState.shouldShowNavRail) {
                     NavigationRail() {
+                        destinations.forEach { destination ->
+                            val selected = currentDestination.isTopLevelDestinationInHierarchy(destination)
+                            NavigationRailItem(
+                                selected = selected,
+                                icon = {
+                                    if (selected) {
+                                        Icon(imageVector = destination.selectedIcon, contentDescription = null, tint = Color.Blue)
+                                    } else {
+                                        Icon(imageVector = destination.unselectedIcon, contentDescription = null, tint = Color.Gray)
+                                    }
+                                },
+                                label = {
+                                    Text(stringResource(destination.iconTextId))
+                                },
+                                enabled = true,
+                                alwaysShowLabel = true,
+                                modifier = Modifier,
+                                onClick = { appState.navigateToTopLevelDestination(destination) },
+                            )
 
+                        }
                     }
                 }
 
@@ -98,13 +131,17 @@ fun MainScreen(
                     // Show the top app bar on top level destinations.
                     val destination = appState.currentTopLevelDestination
                     if (destination != null) {
-
-                        MainNavHost(appState.navController)
+                        //顶部
+                        CenterAlignedTopAppBar(
+                            title = { Text(stringResource(id = destination.titleTextId)) }
+                        )
                     }
+                    MainNavHost(appState.navController)
                 }
             }
         }
     }
+
 }
 
 private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) =

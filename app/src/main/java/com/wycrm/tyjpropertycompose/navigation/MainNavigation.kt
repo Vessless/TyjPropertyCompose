@@ -12,13 +12,11 @@ import com.wycrm.tyjpropertycompose.util.NetworkMonitor
 const val mainRoute = "main_route"
 
 fun NavController.navigationToMain(navOptions: NavOptions? = null) {
-    this.navigate(loginRoute, navOptions)
+    this.navigate(mainRoute, navOptions)
 }
 
-fun NavGraphBuilder.mainScreen(windowSizeClass: WindowSizeClass,
-                               networkMonitor: NetworkMonitor,
-                               appState: MainState ) {
+fun NavGraphBuilder.mainScreen(windowSizeClass: WindowSizeClass, networkMonitor: NetworkMonitor) {
     composable(route = mainRoute) {
-        MainScreen(windowSizeClass,networkMonitor,appState)
+        MainScreen(windowSizeClass, networkMonitor)
     }
 }

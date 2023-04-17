@@ -4,13 +4,12 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
-import com.wycrm.tyjpropertycompose.screens.MainScreen
 import com.wycrm.tyjpropertycompose.screens.main.WorkOrderScreen
 
 const val workOrderRoute = "work_order_route"
 
 fun NavController.navigationToWorkOrder(navOptions: NavOptions? = null) {
-    this.navigate(loginRoute, navOptions)
+    this.navigate(workOrderRoute, navOptions)
 }
 
 fun NavGraphBuilder.workOrderScreen() {

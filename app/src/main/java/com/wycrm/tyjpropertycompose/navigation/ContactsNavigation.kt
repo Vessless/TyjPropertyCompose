@@ -9,7 +9,7 @@ import com.wycrm.tyjpropertycompose.screens.main.ContactsScreen
 const val contactsRoute = "contacts_route"
 
 fun NavController.navigationToContacts(navOptions: NavOptions? = null) {
-    this.navigate(loginRoute, navOptions)
+    this.navigate(contactsRoute, navOptions)
 }
 
 fun NavGraphBuilder.contactsScreen() {

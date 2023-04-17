@@ -10,7 +10,7 @@ object Constants {
     const val CLOUD_BASE_URL = "https://test.wycrm.com.cn/x/wyapp/api/"
 
     //通讯技术部 baseUrl
-    const val COMMUNICATION_BASE_URL = "https://chat-test.wycrm.com.cn/"
+    const val CHAT_BASE_URL = "https://chat-test.wycrm.com.cn/"
 
     const val SIP_URL = "talk-test"
 

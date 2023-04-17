@@ -23,6 +23,7 @@ dependencies{
     implementation(libs.androidx.compose.foundation.layout)
     implementation(libs.androidx.compose.material.iconsExtended)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material)
     implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.compose.runtime.livedata)
     implementation(libs.androidx.compose.ui.tooling.preview)
@@ -37,6 +38,8 @@ dependencies{
     implementation(libs.androidx.lifecycle.livedata.ktx)
 
 
+    implementation(libs.retrofit.kotlin.serialization)
+    implementation(libs.kotlinx.serialization.json)
     //图片加载框架
     implementation(libs.coil.kt)
     implementation(libs.coil.kt.compose)

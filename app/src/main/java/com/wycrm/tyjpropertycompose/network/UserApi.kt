@@ -2,6 +2,10 @@ package com.wycrm.tyjpropertycompose.network
 
 
 import com.wycrm.tyjpropertycompose.constants.Constants
+import com.wycrm.tyjpropertycompose.data.BaseRequest
+import com.wycrm.tyjpropertycompose.data.BaseResponse
+import com.wycrm.tyjpropertycompose.data.entities.LoginEntity
+import com.wycrm.tyjpropertycompose.data.requests.LoginParams
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.*
@@ -17,7 +21,7 @@ interface UserApi {
      * 登录
      */
     @POST(Constants.CloudUrl.LOGIN)
-    suspend fun login(@Body request: Any): Any
+    suspend fun login(@Body request: BaseRequest<LoginParams>): BaseResponse<LoginEntity>
 
     /**
      * 实名验证

@@ -53,12 +53,16 @@ object NetworkModule {
             .client(okHttpClient)
             .build()
 
+    @OptIn(ExperimentalSerializationApi::class)
     @Provides
     @Singleton
     @Named("Chat")
-    fun provideChatRetrofit(okHttpClient: OkHttpClient): Retrofit =
+    fun provideChatRetrofit(okHttpClient: OkHttpClient, networkJson: Json): Retrofit =
         Retrofit.Builder()
             .baseUrl(Constants.CHAT_BASE_URL)
+            .addConverterFactory(
+                networkJson.asConverterFactory("application/json".toMediaType()),
+            )
             .client(okHttpClient)
             .build()
 

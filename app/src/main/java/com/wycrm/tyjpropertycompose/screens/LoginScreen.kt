@@ -11,11 +11,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.wycrm.tyjpropertycompose.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(onNavigateToMain: () -> Unit) {
+fun LoginScreen(
+    onNavigateToMain: () -> Unit,
+    viewModel: LoginViewModel = hiltViewModel()
+) {
+
+
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -45,7 +51,10 @@ fun LoginScreen(onNavigateToMain: () -> Unit) {
             )
 
             Button(
-                onClick = { onNavigateToMain() }
+                onClick = {
+                    viewModel.login()
+//                    onNavigateToMain()
+                }
             ) {
                 Text(text = stringResource(id = R.string.login))
             }

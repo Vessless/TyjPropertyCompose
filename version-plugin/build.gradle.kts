@@ -2,6 +2,8 @@ plugins {
     `kotlin-dsl`
 }
 
+
+
 java {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
@@ -34,4 +36,5 @@ gradlePlugin {
 dependencies {
     implementation(libs.android.gradlePlugin)
     implementation(libs.kotlin.gradlePlugin)
+    implementation(libs.ksp.gradlePlugin)
 }

@@ -4,6 +4,7 @@ plugins {
     id("com.wycrm.android.compose")
     id("com.wycrm.android.room")
     id("com.wycrm.android.hilt")
+    id("kotlinx-serialization")
 }
 
 android{
@@ -31,12 +32,14 @@ dependencies{
     implementation(libs.androidx.metrics)
     implementation(libs.androidx.tracing.ktx)
     debugApi(libs.androidx.compose.ui.tooling)
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.compose.material3.windowSizeClass)
     implementation(libs.androidx.core.ktx)
 
     implementation(libs.androidx.lifecycle.livedata.ktx)
 
+    implementation(libs.androidx.dataStore.preferences)
 
     implementation(libs.retrofit.kotlin.serialization)
     implementation(libs.kotlinx.serialization.json)

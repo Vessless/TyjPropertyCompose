@@ -1,4 +1,4 @@
-package com.wycrm.tyjpropertycompose.screens
+package com.wycrm.tyjpropertycompose.ui.screens
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Column

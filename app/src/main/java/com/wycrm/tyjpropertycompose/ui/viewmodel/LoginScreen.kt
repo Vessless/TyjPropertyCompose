@@ -1,4 +1,4 @@
-package com.wycrm.tyjpropertycompose.screens
+package com.wycrm.tyjpropertycompose.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

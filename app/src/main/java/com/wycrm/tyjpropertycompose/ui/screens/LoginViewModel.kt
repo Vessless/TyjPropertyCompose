@@ -1,4 +1,4 @@
-package com.wycrm.tyjpropertycompose.screens
+package com.wycrm.tyjpropertycompose.ui.screens
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -42,9 +42,15 @@ class LoginViewModel @Inject constructor(
         viewModelScope.launch {
             val loginData = loginDataRepository.login(requestParams)
 
-            val userData = loginData.data
+            val code = loginData.code
 
-            loginDataRepository.insertData(userData)
+            if (code == "0" || code == "000000") {
+
+            }
+
+//            val userData = loginData.data
+
+//            loginDataRepository.insertData(userData)
 
         }
     }

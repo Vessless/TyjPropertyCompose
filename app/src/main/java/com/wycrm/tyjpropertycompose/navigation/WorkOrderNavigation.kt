@@ -4,7 +4,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
-import com.wycrm.tyjpropertycompose.screens.main.WorkOrderScreen
+import com.wycrm.tyjpropertycompose.ui.screens.main.WorkOrderScreen
 
 const val workOrderRoute = "work_order_route"
 

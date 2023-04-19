@@ -5,7 +5,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
-import com.wycrm.tyjpropertycompose.screens.MainScreen
+import com.wycrm.tyjpropertycompose.ui.screens.MainScreen
 import com.wycrm.tyjpropertycompose.ui.MainState
 import com.wycrm.tyjpropertycompose.util.NetworkMonitor
 

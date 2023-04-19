@@ -2,10 +2,10 @@ package com.wycrm.tyjpropertycompose.data.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.wycrm.tyjpropertycompose.network.BaseSerializer
 import kotlinx.serialization.Serializable
 
 @Entity(tableName = "user")
-@Serializable
 data class LoginEntity(
     @PrimaryKey(autoGenerate = false)
     val accountId: String,

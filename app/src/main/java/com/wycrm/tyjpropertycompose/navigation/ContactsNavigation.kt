@@ -4,7 +4,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
-import com.wycrm.tyjpropertycompose.screens.main.ContactsScreen
+import com.wycrm.tyjpropertycompose.ui.screens.main.ContactsScreen
 
 const val contactsRoute = "contacts_route"
 

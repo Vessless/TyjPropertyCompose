@@ -1,4 +1,4 @@
-package com.wycrm.tyjpropertycompose.screens.main
+package com.wycrm.tyjpropertycompose.ui.screens.main
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
@@ -11,10 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.res.stringArrayResource
 import com.wycrm.tyjpropertycompose.R
-import com.wycrm.tyjpropertycompose.screens.workorder.MySuperviseScreen
-import com.wycrm.tyjpropertycompose.screens.workorder.MyWorkOrderScreen
-import com.wycrm.tyjpropertycompose.screens.workorder.ProjectScreen
-import com.wycrm.tyjpropertycompose.screens.workorder.ServiceRequestScreen
+import com.wycrm.tyjpropertycompose.ui.screens.workorder.MySuperviseScreen
+import com.wycrm.tyjpropertycompose.ui.screens.workorder.MyWorkOrderScreen
+import com.wycrm.tyjpropertycompose.ui.screens.workorder.ProjectScreen
+import com.wycrm.tyjpropertycompose.ui.screens.workorder.ServiceRequestScreen
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)

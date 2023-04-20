@@ -1,5 +1,6 @@
 package com.wycrm.tyjpropertycompose.repositories
 
+import com.wycrm.tyjpropertycompose.constants.DataStoreKey
 import com.wycrm.tyjpropertycompose.data.BaseRequest
 import com.wycrm.tyjpropertycompose.data.dao.UserDao
 import com.wycrm.tyjpropertycompose.data.entities.LoginEntity
@@ -16,4 +17,5 @@ class LoginDataRepository @Inject constructor(
     suspend fun login(params: BaseRequest<LoginParams>) = userApi.login(params)
 
     suspend fun insertData(loginEntity: LoginEntity) = userDao.insertData(loginEntity)
+
 }

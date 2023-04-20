@@ -43,7 +43,7 @@ import com.wycrm.tyjpropertycompose.ui.MainState
 import com.wycrm.tyjpropertycompose.ui.rememberMainState
 import com.wycrm.tyjpropertycompose.util.NetworkMonitor
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun MainScreen(

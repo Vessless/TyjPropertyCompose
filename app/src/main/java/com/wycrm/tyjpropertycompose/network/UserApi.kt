@@ -4,7 +4,9 @@ package com.wycrm.tyjpropertycompose.network
 import com.wycrm.tyjpropertycompose.constants.Constants
 import com.wycrm.tyjpropertycompose.data.BaseRequest
 import com.wycrm.tyjpropertycompose.data.BaseResponse
+import com.wycrm.tyjpropertycompose.data.entities.CompanyInfoEntity
 import com.wycrm.tyjpropertycompose.data.entities.LoginEntity
+import com.wycrm.tyjpropertycompose.data.requests.AccountId
 import com.wycrm.tyjpropertycompose.data.requests.LoginParams
 import okhttp3.ResponseBody
 import retrofit2.Response
@@ -52,7 +54,7 @@ interface UserApi {
      * 查询公司信息
      */
     @POST(Constants.CloudUrl.COMPANY_INFORMATION)
-    suspend fun getCompanyInfo(@Body request: Any): List<Any>
+    suspend fun getCompanyInfo(@Body request: BaseRequest<AccountId>): BaseResponse<List<CompanyInfoEntity>>
 
     /**
      * 检测版本更新

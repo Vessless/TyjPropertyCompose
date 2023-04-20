@@ -13,10 +13,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.wycrm.tyjpropertycompose.ui.viewmodel.MyWorkOrderViewModel
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun MyWorkOrderScreen() {
+fun MyWorkOrderScreen(
+    viewModel: MyWorkOrderViewModel = hiltViewModel()
+) {
+
+    viewModel.getCompanyInfo()
+
     val itemsList = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
     val state = rememberLazyListState()
 

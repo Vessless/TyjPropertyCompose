@@ -3,6 +3,7 @@ package com.wycrm.tyjpropertycompose.di
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.wycrm.tyjpropertycompose.constants.Constants
 import com.wycrm.tyjpropertycompose.network.UserApi
+import com.wycrm.tyjpropertycompose.network.WorkOrderApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -40,7 +41,6 @@ object NetworkModule {
         }
 
 
-    @OptIn(ExperimentalSerializationApi::class)
     @Provides
     @Singleton
     @Named("Cloud")
@@ -53,7 +53,6 @@ object NetworkModule {
             .client(okHttpClient)
             .build()
 
-    @OptIn(ExperimentalSerializationApi::class)
     @Provides
     @Singleton
     @Named("Chat")
@@ -70,4 +69,9 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideUserApi(@Named("Cloud") retrofit: Retrofit): UserApi = retrofit.create(UserApi::class.java)
+
+
+    @Provides
+    @Singleton
+    fun provideWorkOrderApi(@Named("Cloud") retrofit: Retrofit): WorkOrderApi = retrofit.create(WorkOrderApi::class.java)
 }

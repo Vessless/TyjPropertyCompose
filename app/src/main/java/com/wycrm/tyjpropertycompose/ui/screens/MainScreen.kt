@@ -53,6 +53,7 @@ fun MainScreen(
         networkMonitor = networkMonitor,
         windowSizeClass = windowSizeClass,
     ),
+    navController: NavHostController
 ) {
 
     val snackbarHostState = remember { SnackbarHostState() }
@@ -136,7 +137,7 @@ fun MainScreen(
                             title = { Text(stringResource(id = destination.titleTextId)) }
                         )
                     }
-                    MainNavHost(appState.navController)
+                    MainNavHost(navController, appState.navController)
                 }
             }
         }

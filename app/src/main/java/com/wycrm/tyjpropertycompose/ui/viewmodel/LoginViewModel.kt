@@ -9,7 +9,6 @@ import androidx.lifecycle.viewModelScope
 import com.wycrm.tyjpropertycompose.constants.Constants
 import com.wycrm.tyjpropertycompose.constants.DataStoreKey
 import com.wycrm.tyjpropertycompose.data.BaseRequest
-import com.wycrm.tyjpropertycompose.data.entities.LoginEntity
 import com.wycrm.tyjpropertycompose.data.requests.LoginParams
 import com.wycrm.tyjpropertycompose.repositories.DataStoreRepository
 import com.wycrm.tyjpropertycompose.repositories.LoginDataRepository
@@ -17,11 +16,8 @@ import com.wycrm.tyjpropertycompose.ui.uistate.CommonState
 import com.wycrm.tyjpropertycompose.ui.uistate.LoginUiState
 import com.wycrm.tyjpropertycompose.util.DecodeUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -62,7 +58,7 @@ class LoginViewModel @Inject constructor(
         val token = ""
         val data = LoginParams(
             mobile = account,
-            password = DecodeUtils.RC4Base64Encry(password),
+            password = DecodeUtils.rc4Base64Encrypt(password),
             sourceType = Constants.SOURCE_TYPE
         )
         val dataString = Json.encodeToString(data)

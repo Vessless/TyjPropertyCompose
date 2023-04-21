@@ -10,6 +10,7 @@
     <string name="contacts">联系人</string>
     <string name="workbenches">工作台</string>
     <string name="settings">设置</string>
+    <string name="select_current_project">选择所在项目</string>
 
 
 </resources>

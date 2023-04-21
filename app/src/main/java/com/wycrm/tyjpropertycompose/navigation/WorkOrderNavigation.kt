@@ -2,6 +2,7 @@ package com.wycrm.tyjpropertycompose.navigation
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.wycrm.tyjpropertycompose.ui.screens.main.WorkOrderScreen
@@ -12,8 +13,8 @@ fun NavController.navigationToWorkOrder(navOptions: NavOptions? = null) {
     this.navigate(workOrderRoute, navOptions)
 }
 
-fun NavGraphBuilder.workOrderScreen() {
+fun NavGraphBuilder.workOrderScreen(navHostController: NavHostController) {
     composable(route = workOrderRoute) {
-        WorkOrderScreen()
+        WorkOrderScreen(navHostController)
     }
 }

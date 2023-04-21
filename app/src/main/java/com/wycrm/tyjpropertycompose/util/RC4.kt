@@ -32,10 +32,10 @@ object RC4 {
             return null
         }
         val bData = data.toByteArray()
-        return Rc4Base(bData, key)
+        return rc4Base(bData, key)
     }
 
-    private fun Rc4Base(input: ByteArray, mKey: String): ByteArray {
+    private fun rc4Base(input: ByteArray, mKey: String): ByteArray {
         var x = 0
         var y = 0
         val key = initKey(mKey)

@@ -6,11 +6,12 @@ import androidx.navigation.compose.NavHost
 
 @Composable
 fun MainNavHost(
+    mainController: NavHostController,
     navController: NavHostController,
     statDestination: String = workOrderRoute
 ) {
     NavHost(navController = navController, startDestination = statDestination) {
-        workOrderScreen()
+        workOrderScreen(mainController)
         contactsScreen()
         workbenchesScreen()
         settingsScreen()

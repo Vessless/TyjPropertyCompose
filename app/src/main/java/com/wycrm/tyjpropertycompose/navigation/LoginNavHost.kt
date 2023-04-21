@@ -24,9 +24,8 @@ fun LoginNavHost(
         startDestination = startDestination,
         modifier = modifier
     ) {
-        loginScreen {
-            navController.navigate(mainRoute)
-        }
-        mainScreen(windowSizeClass,networkMonitor)
+        loginScreen(navController)
+        mainScreen(windowSizeClass, networkMonitor, navController)
+        selectProjectScreen()
     }
 }

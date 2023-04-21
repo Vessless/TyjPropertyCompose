@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.res.stringArrayResource
+import androidx.navigation.NavHostController
 import com.wycrm.tyjpropertycompose.R
 import com.wycrm.tyjpropertycompose.ui.screens.workorder.MySuperviseScreen
 import com.wycrm.tyjpropertycompose.ui.screens.workorder.MyWorkOrderScreen
@@ -19,7 +20,9 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun WorkOrderScreen() {
+fun WorkOrderScreen(
+    navController: NavHostController,
+) {
 
     val pagerState = rememberPagerState()
 
@@ -47,12 +50,13 @@ fun WorkOrderScreen() {
             pageCount = 4
         ) {
             when (it) {
-                0 -> MyWorkOrderScreen()
-                1 -> MySuperviseScreen()
-                2 -> ServiceRequestScreen()
-                3 -> ProjectScreen()
+                0 -> MyWorkOrderScreen(navController)
+                1 -> MySuperviseScreen(navController)
+                2 -> ServiceRequestScreen(navController)
+                3 -> ProjectScreen(navController)
                 else -> {}
             }
         }
+
     }
 }

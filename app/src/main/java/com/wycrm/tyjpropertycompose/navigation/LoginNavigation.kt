@@ -2,6 +2,7 @@ package com.wycrm.tyjpropertycompose.navigation
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.wycrm.tyjpropertycompose.ui.screens.LoginScreen
@@ -12,8 +13,8 @@ fun NavController.navigationToLogin(navOptions: NavOptions? = null) {
     this.navigate(loginRoute, navOptions)
 }
 
-fun NavGraphBuilder.loginScreen(function: () -> Unit) {
+fun NavGraphBuilder.loginScreen(navController: NavHostController) {
     composable(route = loginRoute) {
-        LoginScreen(function)
+        LoginScreen(navController)
     }
 }

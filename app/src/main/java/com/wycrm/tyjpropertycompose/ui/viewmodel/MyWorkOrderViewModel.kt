@@ -1,7 +1,10 @@
 package com.wycrm.tyjpropertycompose.ui.viewmodel
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asFlow
 import androidx.lifecycle.viewModelScope
 import com.wycrm.tyjpropertycompose.constants.DataStoreKey
 import com.wycrm.tyjpropertycompose.data.BaseRequest
@@ -32,7 +35,11 @@ class MyWorkOrderViewModel @Inject constructor(
     private val _uiState = MutableStateFlow<MyWorkOrderUiState>(MyWorkOrderUiState.Default)
     val uiState = _uiState.asStateFlow()
 
-    private val _projectList = MutableStateFlow<MutableList<CompanyInfoEntity>>(mutableListOf())
+    private val _projectList = MutableStateFlow<List<CompanyInfoEntity>>(mutableListOf())
+
+    private val _list = MutableLiveData<List<CompanyInfoEntity>>()
+
+    val list :LiveData<List<CompanyInfoEntity>> = _list
 
     val projectList = _projectList.asStateFlow()
 
@@ -58,7 +65,7 @@ class MyWorkOrderViewModel @Inject constructor(
                 companyData.data?.let {
                     Log.i(TAG, "getCompanyInfo:  size = ${it.size}")
                     if (it.size > 1) {
-                        _projectList.value = companyData.data as MutableList<CompanyInfoEntity>
+                        _projectList.value = companyData.data
                         _uiState.value = MyWorkOrderUiState.NavToSelectProject
                     }
                 }

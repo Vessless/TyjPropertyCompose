@@ -38,14 +38,16 @@ fun MyWorkOrderScreen(
     navController: NavHostController,
     viewModel: MyWorkOrderViewModel = hiltViewModel()
 ) {
-    viewModel.getCompanyInfo()
+
+    Log.i(TAG, "MyWorkOrderScreen:  why do twice ")
+
 
     val uiState = viewModel.uiState
     LaunchedEffect(key1 = uiState) {
         launch {
             uiState.collect {
                 when (it) {
-                    MyWorkOrderUiState.Default -> Unit
+                    MyWorkOrderUiState.Default -> viewModel.getCompanyInfo()
                     MyWorkOrderUiState.NavToSelectProject -> Unit
                 }
             }

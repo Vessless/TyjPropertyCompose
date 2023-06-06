@@ -1,5 +1,6 @@
 package com.wycrm.tyjpropertycompose.ui.screens.main
 
+import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.pager.HorizontalPager
@@ -18,12 +19,13 @@ import com.wycrm.tyjpropertycompose.ui.screens.workorder.ProjectScreen
 import com.wycrm.tyjpropertycompose.ui.screens.workorder.ServiceRequestScreen
 import kotlinx.coroutines.launch
 
+private const val TAG = "WorkOrderScreen"
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun WorkOrderScreen(
     navController: NavHostController,
 ) {
-
+    Log.i(TAG, "WorkOrderScreen: do twice")
     val pagerState = rememberPagerState()
 
     val coroutineScope = rememberCoroutineScope()

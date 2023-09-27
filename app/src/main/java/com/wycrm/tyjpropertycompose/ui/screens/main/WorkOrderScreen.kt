@@ -20,13 +20,16 @@ import com.wycrm.tyjpropertycompose.ui.screens.workorder.ServiceRequestScreen
 import kotlinx.coroutines.launch
 
 private const val TAG = "WorkOrderScreen"
+
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun WorkOrderScreen(
     navController: NavHostController,
 ) {
     Log.i(TAG, "WorkOrderScreen: do twice")
-    val pagerState = rememberPagerState()
+    val pagerState = rememberPagerState(pageCount = {
+        4
+    })
 
     val coroutineScope = rememberCoroutineScope()
 
@@ -42,14 +45,15 @@ fun WorkOrderScreen(
                             pagerState.scrollToPage(index)
                         }
                     },
-                    text = { Text(text = s) },
+                    text = {
+                        Text(text = s)
+                    }
                 )
             }
 
         }
         HorizontalPager(
-            state = pagerState,
-            pageCount = 4
+            state = pagerState
         ) {
             when (it) {
                 0 -> MyWorkOrderScreen(navController)

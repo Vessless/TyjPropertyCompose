@@ -39,7 +39,10 @@ import com.wycrm.tyjpropertycompose.ui.rememberMainState
 import com.wycrm.tyjpropertycompose.util.NetworkMonitor
 
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
+@OptIn(
+    ExperimentalMaterial3Api::class,
+    ExperimentalLayoutApi::class
+)
 @Composable
 fun MainScreen(
     windowSizeClass: WindowSizeClass,

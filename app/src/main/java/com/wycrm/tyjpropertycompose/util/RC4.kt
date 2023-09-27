@@ -6,18 +6,18 @@ object RC4 {
         return  toHexString(asString(encryptRc4Byte(data, key)))
     }
 
-    private fun toHexString(s: String): String {
-        var str = ""
-        for (element in s) {
-            val ch = element.code
-            var s4 = Integer.toHexString(ch and 0xFF)
-            if (s4.length == 1) {
-                s4 = "0$s4"
-            }
-            str += s4
+private fun toHexString(input: String): String {
+    val hexChars = StringBuilder()
+    for (char in input) {
+        val charCode = char.code
+        var hexChar = Integer.toHexString(charCode and 0xFF)
+        if (hexChar.length == 1) {
+            hexChar = "0${hexChar}"
         }
-        return str // 0x表示十六进制
+        hexChars.append(hexChar)
     }
+    return hexChars.toString()
+}
 
     private fun asString(buf: ByteArray?): String {
         val struct = StringBuffer(buf!!.size)

@@ -1,5 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
 import com.wycrm.plugin.configureKotlinAndroid
+import org.gradle.api.Incubating
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -17,8 +18,9 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 configureKotlinAndroid(this)
                 with(defaultConfig) {
                     targetSdk = 34
-                    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-                    vectorDrawables.useSupportLibrary = true
+                    vectorDrawables{
+                        useSupportLibrary = true
+                    }
                     ndk {
                         abiFilters += listOf("armeabi", "x86", "armeabi-v7a", "x86_64", "arm64-v8a")
                     }
